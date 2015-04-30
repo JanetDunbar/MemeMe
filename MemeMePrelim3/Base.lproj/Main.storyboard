@@ -46,21 +46,37 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d2B-dT-zkt">
+                                <rect key="frame" x="266" y="501" width="69" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pqi-Ms-uCS">
+                                <rect key="frame" x="278" y="39" width="45" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mpE-er-rsG" firstAttribute="leading" secondItem="R3R-Z1-IrI" secondAttribute="leading" id="9WQ-lt-8kU"/>
+                            <constraint firstItem="pqi-Ms-uCS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="19" id="B3m-uh-vUV"/>
+                            <constraint firstItem="d2B-dT-zkt" firstAttribute="top" secondItem="mpE-er-rsG" secondAttribute="bottom" constant="-50" id="IGN-8B-Bb7"/>
                             <constraint firstAttribute="centerX" secondItem="mpE-er-rsG" secondAttribute="centerX" id="NNU-7i-8UM"/>
                             <constraint firstAttribute="centerX" secondItem="R3R-Z1-IrI" secondAttribute="centerX" id="Sgc-Pe-LRs"/>
                             <constraint firstItem="mpE-er-rsG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="UkT-dR-pkx"/>
                             <constraint firstItem="R3R-Z1-IrI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Uta-uN-lea"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="R3R-Z1-IrI" secondAttribute="bottom" id="Uv6-7F-l3h"/>
-                            <constraint firstAttribute="centerY" secondItem="mpE-er-rsG" secondAttribute="centerY" constant="14.5" id="wEr-ce-VLt"/>
+                            <constraint firstItem="d2B-dT-zkt" firstAttribute="centerX" secondItem="mpE-er-rsG" secondAttribute="centerX" constant="0.5" id="gFm-N9-1vB"/>
+                            <constraint firstItem="mpE-er-rsG" firstAttribute="centerX" secondItem="pqi-Ms-uCS" secondAttribute="centerX" constant="-0.5" id="pOy-7t-k6y"/>
+                            <constraint firstItem="R3R-Z1-IrI" firstAttribute="top" secondItem="mpE-er-rsG" secondAttribute="bottom" constant="5" id="sCx-SC-pSh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="d2B-dT-zkt" id="e77-K5-cbr"/>
                         <outlet property="cameraButton" destination="V3T-v5-NFr" id="Yn6-Ek-G1y"/>
                         <outlet property="imagePickerView" destination="mpE-er-rsG" id="2sY-3v-bMw"/>
+                        <outlet property="topTextField" destination="pqi-Ms-uCS" id="sZB-8P-L3a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

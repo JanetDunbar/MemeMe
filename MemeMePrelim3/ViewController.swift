@@ -11,13 +11,21 @@ import UIKit
 class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
-    //var picker = UIImagePickerController()
+    
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
+    @IBOutlet weak var topTextField: UITextField!
+    
+    @IBOutlet weak var bottomTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        topTextField.textAlignment =  .Center
+        bottomTextField.textAlignment = .Center
     }
     
     override func viewWillAppear(animated: Bool) {

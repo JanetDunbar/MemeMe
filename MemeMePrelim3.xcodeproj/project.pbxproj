@@ -161,6 +161,7 @@
 				TargetAttributes = {
 					84B3852B1AF13A6D000CE6BA = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = XREGL28FA9;
 					};
 					84B385401AF13A6D000CE6BA = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -340,6 +341,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemeMePrelim3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemeMePrelim3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +412,7 @@
 				84B3854D1AF13A6D000CE6BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84B3854E1AF13A6D000CE6BA /* Build configuration list for PBXNativeTarget "MemeMePrelim3Tests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +421,7 @@
 				84B385501AF13A6D000CE6BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
