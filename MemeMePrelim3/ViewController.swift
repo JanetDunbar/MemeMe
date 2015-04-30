@@ -26,6 +26,17 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         bottomTextField.text = "BOTTOM"
         topTextField.textAlignment =  .Center
         bottomTextField.textAlignment = .Center
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : 3.0
+            //TODO: Fill in appropriate Float
+        ]
+        
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        
     }
     
     override func viewWillAppear(animated: Bool) {
