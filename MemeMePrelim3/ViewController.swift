@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,6 +36,15 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
+    
+    @IBAction func pickAnImageFromCamera(sender: AnyObject) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
     
 }
 

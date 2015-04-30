@@ -21,7 +21,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RGF-o7-iZs"/>
-                                    <barButtonItem systemItem="camera" id="V3T-v5-NFr"/>
+                                    <barButtonItem systemItem="camera" id="V3T-v5-NFr">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="vXZ-lx-hvc" id="p1g-wV-HZJ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="v6x-s1-FO2"/>
                                     <barButtonItem title="Album" id="1JR-Ai-tGZ">
                                         <connections>
