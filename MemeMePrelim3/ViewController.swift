@@ -15,36 +15,68 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
-    let memeTextAttributes = [
+    var memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : NSNumber(float: 3.0)
+        NSStrokeWidthAttributeName : NSNumber(float: 3.0),
         //TODO: Fill in appropriate Float
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        topTextField.delegate = self
+        //topTextField.autocapitalizationType = .AllCharacters
+        
+        
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         topTextField.textAlignment =  .Center
         bottomTextField.textAlignment = .Center
         
+        
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
+        
+        topTextField.delegate = self
+        bottomTextField.delegate = self
         
         /***
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.borderStyle = UITextBorderStyle.None
-        topTextField.opaque = true
+        topTextField.opaque = false
         topTextField.textColor = UIColor.whiteColor()
         println("topTextField = \(topTextField)")
         ***/
-      
+       
+        
+        /***
+        
+        ***/
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        println("Inside textFieldDidBeginEditing")
+        println("textField is \(textField)")
+        
+        if (textField.text == "TOP") || (textField.text == "BOTTOM"){
+            
+            textField.text = ""
+        }
+        
+        textField.autocapitalizationType = .AllCharacters
+    }
+    
+    
+    func textFieldShouldReturn(textField:UITextField)->Bool{
+        
+        textField.resignFirstResponder()
+        return true
+    }
+
+
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
