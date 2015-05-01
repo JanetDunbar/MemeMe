@@ -8,35 +8,41 @@
 
 import UIKit
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
-    
-    
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    
     @IBOutlet weak var topTextField: UITextField!
-    
     @IBOutlet weak var bottomTextField: UITextField!
+    
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : NSNumber(float: 3.0)
+        //TODO: Fill in appropriate Float
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        topTextField.delegate = self
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         topTextField.textAlignment =  .Center
         bottomTextField.textAlignment = .Center
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : 3.0
-            //TODO: Fill in appropriate Float
-        ]
         
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
         
+        /***
+        topTextField.backgroundColor = UIColor.clearColor()
+        topTextField.borderStyle = UITextBorderStyle.None
+        topTextField.opaque = true
+        topTextField.textColor = UIColor.whiteColor()
+        println("topTextField = \(topTextField)")
+        ***/
+      
     }
     
     override func viewWillAppear(animated: Bool) {
