@@ -63,6 +63,9 @@
                                     <navigationItem id="xaZ-E5-4HO">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="FwR-iI-t5O">
                                             <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
+                                            <connections>
+                                                <action selector="showActivityVC:" destination="vXZ-lx-hvc" id="duw-nJ-YXx"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="F6g-qY-Fxz"/>
                                     </navigationItem>

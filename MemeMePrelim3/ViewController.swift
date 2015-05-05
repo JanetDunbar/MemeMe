@@ -171,5 +171,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     }
     
     
+    @IBAction func showActivityVC(sender: UIBarButtonItem) {
+        
+        let image = UIImage()
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        presentViewController(controller, animated: true, completion: nil)
+    }
 }
 
