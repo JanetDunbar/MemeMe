@@ -23,7 +23,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         //TODO: Fill in appropriate Float
     ]
     
-
+    struct Meme {
+        var topText = ""
+        var bottomText = ""
+        var originalImage: UIImage?
+        var memedImage: UIImage?
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,6 +147,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             UIKeyboardWillHideNotification, object: nil)
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -173,9 +179,37 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     
     @IBAction func showActivityVC(sender: UIBarButtonItem) {
         
-        let image = UIImage()
+        
+        let image = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         presentViewController(controller, animated: true, completion: nil)
     }
+    
+    /******/
+    func generateMemedImage() -> UIImage
+    {
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return memedImage
+    }
+    
+    
+    func save() {
+        //Create the meme
+        var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!,
+            originalImage: imagePickerView.image, memedImage: generateMemedImage())
+        
+        println ("meme is \(meme)")
+    }
+    
+    
+    /*****/
+
 }
 
