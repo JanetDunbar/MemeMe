@@ -43,6 +43,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         topTextField.delegate = self
         bottomTextField.delegate = self
         
+        //topTextField.tintColor = UIColor.blackColor()
+        
         /***
         topTextField.backgroundColor = UIColor.clearColor()
         topTextField.borderStyle = UITextBorderStyle.None

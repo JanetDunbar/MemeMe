@@ -61,7 +61,12 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEJ-RL-Te0">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="xaZ-E5-4HO"/>
+                                    <navigationItem id="xaZ-E5-4HO">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="FwR-iI-t5O">
+                                            <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="F6g-qY-Fxz"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
