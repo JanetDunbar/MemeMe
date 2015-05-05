@@ -23,6 +23,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         //TODO: Fill in appropriate Float
     ]
     
+    //var memedImage: UIImage
+    
     struct Meme {
         var topText = ""
         var bottomText = ""
@@ -182,8 +184,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         let image = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        //controller.completionWithItemsHandler = ("save", Bool, [image]!, activityError!: nil)
         presentViewController(controller, animated: true, completion: nil)
-    }
+        save()
+            }
     
     /******/
     func generateMemedImage() -> UIImage
@@ -204,8 +208,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         //Create the meme
         var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!,
             originalImage: imagePickerView.image, memedImage: generateMemedImage())
-        
+        //dismissViewControllerAnimated(true, completion: nil)
+
         println ("meme is \(meme)")
+        println ("topText is \(meme.topText)")
+        
     }
     
     
