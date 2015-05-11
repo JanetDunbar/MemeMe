@@ -12,7 +12,24 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    /****newly added code.  struct decl nec?fsave ***/
 
+    //var Meme = ViewController.Meme
+    /***
+    struct Meme {
+        var topText = ""
+        var bottomText = ""
+        var originalImage: UIImage?
+        var memedImage: UIImage?
+    }
+***/
+    
+    var memes = [Meme]()
+    
+    
+    
+    
+    /**** ***/
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

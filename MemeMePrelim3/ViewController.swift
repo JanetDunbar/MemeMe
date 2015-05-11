@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct Meme {
+    var topText = ""
+    var bottomText = ""
+    var originalImage: UIImage?
+    var memedImage: UIImage?
+}
+
 class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -25,12 +32,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     
     //var memedImage: UIImage
     
-    struct Meme {
-        var topText = ""
-        var bottomText = ""
-        var originalImage: UIImage?
-        var memedImage: UIImage?
-    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         topTextField.delegate = self
         bottomTextField.delegate = self
+        
+        
         
         //topTextField.tintColor = UIColor.blackColor()
         
@@ -206,17 +212,28 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     
     func save() {
         //Create the meme
+        
+        //moved this struct from top of class...
+     
+        
+
+        
         var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!,
             originalImage: imagePickerView.image, memedImage: generateMemedImage())
         //dismissViewControllerAnimated(true, completion: nil)
 
         println ("meme is \(meme)")
         println ("topText is \(meme.topText)")
+        /***
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        ***/
         
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+ 
+         /*****/
     }
-    
-    
-    /*****/
 
 }
 
