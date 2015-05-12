@@ -26,7 +26,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : NSNumber(float: 3.0),
+        NSStrokeWidthAttributeName : NSNumber(float: -3.0),
         //TODO: Fill in appropriate Float
     ]
     
@@ -46,6 +46,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         bottomTextField.text = "BOTTOM"
         topTextField.textAlignment =  .Center
         bottomTextField.textAlignment = .Center
+        //just added 5.12.15
+        topTextField.borderStyle = .None
+        bottomTextField.borderStyle = .None
+
         
         
         topTextField.defaultTextAttributes = memeTextAttributes
