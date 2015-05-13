@@ -217,14 +217,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     func save() {
         //Create the meme
         
-        //moved this struct from top of class...
-     
-        
-
-        
         var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!,
             originalImage: imagePickerView.image, memedImage: generateMemedImage())
-        //dismissViewControllerAnimated(true, completion: nil)
+        
 
         println ("meme is \(meme)")
         println ("topText is \(meme.topText)")
@@ -235,8 +230,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
- 
+         
          /*****/
+        
+        //dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
