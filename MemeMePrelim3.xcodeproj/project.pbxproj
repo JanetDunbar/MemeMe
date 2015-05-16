@@ -15,6 +15,7 @@
 		84B385391AF13A6D000CE6BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B385381AF13A6D000CE6BA /* Images.xcassets */; };
 		84B3853C1AF13A6D000CE6BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B3853A1AF13A6D000CE6BA /* LaunchScreen.xib */; };
 		84B385481AF13A6D000CE6BA /* MemeMePrelim3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B385471AF13A6D000CE6BA /* MemeMePrelim3Tests.swift */; };
+		84E1B7211B07EFC600C6C0D9 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1B7201B07EFC600C6C0D9 /* CollectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		841B837C1AF3FB7B008B81BC /* aTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aTextFieldDelegate.swift; sourceTree = "<group>"; };
-		84A352751B07EC3000C2F46B /* TableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableVC.swift; path = MemeMePrelim3/TableVC.swift; sourceTree = "<group>"; };
+		84A352751B07EC3000C2F46B /* TableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
 		84B3852C1AF13A6D000CE6BA /* MemeMePrelim3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMePrelim3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B385301AF13A6D000CE6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B385311AF13A6D000CE6BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +41,7 @@
 		84B385411AF13A6D000CE6BA /* MemeMePrelim3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMePrelim3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B385461AF13A6D000CE6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B385471AF13A6D000CE6BA /* MemeMePrelim3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMePrelim3Tests.swift; sourceTree = "<group>"; };
+		84E1B7201B07EFC600C6C0D9 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,6 @@
 		84B385231AF13A6D000CE6BA = {
 			isa = PBXGroup;
 			children = (
-				84A352751B07EC3000C2F46B /* TableVC.swift */,
 				84B3852E1AF13A6D000CE6BA /* MemeMePrelim3 */,
 				84B385441AF13A6D000CE6BA /* MemeMePrelim3Tests */,
 				84B3852D1AF13A6D000CE6BA /* Products */,
@@ -82,6 +83,8 @@
 		84B3852E1AF13A6D000CE6BA /* MemeMePrelim3 */ = {
 			isa = PBXGroup;
 			children = (
+				84E1B7201B07EFC600C6C0D9 /* CollectionVC.swift */,
+				84A352751B07EC3000C2F46B /* TableVC.swift */,
 				84B385311AF13A6D000CE6BA /* AppDelegate.swift */,
 				84B385331AF13A6D000CE6BA /* ViewController.swift */,
 				84B385351AF13A6D000CE6BA /* Main.storyboard */,
@@ -223,6 +226,7 @@
 				84A352761B07EC3000C2F46B /* TableVC.swift in Sources */,
 				84B385341AF13A6D000CE6BA /* ViewController.swift in Sources */,
 				84B385321AF13A6D000CE6BA /* AppDelegate.swift in Sources */,
+				84E1B7211B07EFC600C6C0D9 /* CollectionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
