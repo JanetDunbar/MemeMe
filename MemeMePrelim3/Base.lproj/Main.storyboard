@@ -128,7 +128,7 @@
         <!--Table View Controller-->
         <scene sceneID="icO-Hn-rl7">
             <objects>
-                <tableViewController id="Tw4-mg-Sii" userLabel="Table View Controller" sceneMemberID="viewController">
+                <tableViewController title="Sent Memes" id="Tw4-mg-Sii" userLabel="Table View Controller" customClass="TableVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FCh-SJ-pDO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,11 +146,11 @@
                             <outlet property="delegate" destination="Tw4-mg-Sii" id="QYW-oc-M12"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="NKD-rS-aWs"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7u-av-l2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1316" y="411"/>
+            <point key="canvasLocation" x="1318" y="421"/>
         </scene>
         <!--Collection-->
         <scene sceneID="OZc-zV-0y3">
@@ -219,7 +219,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQp-Hc-3Bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608" y="428"/>
+            <point key="canvasLocation" x="610" y="438"/>
         </scene>
     </scenes>
 </document>

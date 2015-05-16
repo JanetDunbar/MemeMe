@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		841B837D1AF3FB7B008B81BC /* aTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B837C1AF3FB7B008B81BC /* aTextFieldDelegate.swift */; };
+		84A352761B07EC3000C2F46B /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A352751B07EC3000C2F46B /* TableVC.swift */; };
 		84B385321AF13A6D000CE6BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B385311AF13A6D000CE6BA /* AppDelegate.swift */; };
 		84B385341AF13A6D000CE6BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B385331AF13A6D000CE6BA /* ViewController.swift */; };
 		84B385371AF13A6D000CE6BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B385351AF13A6D000CE6BA /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		841B837C1AF3FB7B008B81BC /* aTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aTextFieldDelegate.swift; sourceTree = "<group>"; };
+		84A352751B07EC3000C2F46B /* TableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableVC.swift; path = MemeMePrelim3/TableVC.swift; sourceTree = "<group>"; };
 		84B3852C1AF13A6D000CE6BA /* MemeMePrelim3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMePrelim3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B385301AF13A6D000CE6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B385311AF13A6D000CE6BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		84B385231AF13A6D000CE6BA = {
 			isa = PBXGroup;
 			children = (
+				84A352751B07EC3000C2F46B /* TableVC.swift */,
 				84B3852E1AF13A6D000CE6BA /* MemeMePrelim3 */,
 				84B385441AF13A6D000CE6BA /* MemeMePrelim3Tests */,
 				84B3852D1AF13A6D000CE6BA /* Products */,
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841B837D1AF3FB7B008B81BC /* aTextFieldDelegate.swift in Sources */,
+				84A352761B07EC3000C2F46B /* TableVC.swift in Sources */,
 				84B385341AF13A6D000CE6BA /* ViewController.swift in Sources */,
 				84B385321AF13A6D000CE6BA /* AppDelegate.swift in Sources */,
 			);
