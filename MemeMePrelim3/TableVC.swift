@@ -8,10 +8,21 @@
 
 import UIKit
 
-class TableVC: UITableViewController {
 
+class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+
+    var memes = [Meme]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        memes = appDelegate.memes
+        self.tableView.reloadData() 
+        
+        //*****Remove*********!!!!!!!!!!
+        println(memes)
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,34 +31,45 @@ class TableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Potentially incomplete method implementation.
+//        // Return the number of sections.
+//        return 0
+//    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        
+        println(memes.count)
+        return memes.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
+        let currentElement = memes[indexPath.row]
         // Configure the cell...
-
+        cell.textLabel?.text = currentElement.topText
+        cell.imageView?.image = currentElement.memedImage
+        print("currentElement.topText in tableView = \(currentElement.topText)")
+        //self.tableView.reloadData()
         return cell
     }
-    */
+    
+    /***TODO:  implement equivalent after make detailVC
+func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("VillainDetailViewController") as! VillainDetailViewController
+detailController.villain = self.allVillains[indexPath.row]
+self.navigationController!.pushViewController(detailController, animated: true)
+
+}
+***/
+
 
     /*
     // Override to support conditional editing of the table view.

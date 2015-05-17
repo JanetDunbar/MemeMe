@@ -7,13 +7,14 @@
 //
 
 import UIKit
-
+/***trying in separate file
 struct Meme {
     var topText = ""
     var bottomText = ""
     var originalImage: UIImage?
     var memedImage: UIImage?
 }
+***/
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
@@ -31,8 +32,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     ]
     
     //var memedImage: UIImage
-    
-    
     
     
     
@@ -159,11 +158,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             UIKeyboardWillHideNotification, object: nil)
     }
     
-    
+    /***
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+****/
     
     @IBAction func pickAnImage(sender: AnyObject) {
         
@@ -188,18 +188,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    
-    @IBAction func showActivityVC(sender: UIBarButtonItem) {
-        
-        
-        let image = generateMemedImage()
-        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        //controller.completionWithItemsHandler = ("save", Bool, [image]!, activityError!: nil)
-        presentViewController(controller, animated: true, completion: nil)
-        save()
-            }
-    
-    /******/
     func generateMemedImage() -> UIImage
     {
         // Render view to an image
@@ -212,20 +200,45 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         return memedImage
     }
+
+    @IBAction func showActivityVC(sender: UIBarButtonItem) {
+        
+        
+        let image = generateMemedImage()
+        //save()
+
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        
+        //when complete save and dismiss VC
+        controller.completionWithItemsHandler = {activity, completed, items, error in
+            if completed {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        self.presentViewController(controller, animated: true, completion: nil)
+
+    }
+/***old code-?worked about the same
+
+        presentViewController(controller, animated: true, completion: nil)
+        save()
+            }
+***/
+    
+
     
     
     func save() {
         //Create the meme
         
-        var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!,
-            originalImage: imagePickerView.image, memedImage: generateMemedImage())
+        var meme = Meme(topText: topTextField.text!, bottomText:bottomTextField.text!,
+            originalImage: self.imagePickerView.image, memedImage: generateMemedImage())
         
 
         println ("meme is \(meme)")
         println ("topText is \(meme.topText)")
-        /***
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
-        ***/
         
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -235,6 +248,37 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         //dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    //TODO:  Refactor L2 code to create function to segue to
+    //Tab Bar VC.  Be sure to give Tab Bar Vc it a storyboard ID
+    //and Class name.?Won't need to pass the data either.
+    //It will need to be called after ActivityVC completes.
+   
+//IBAction func rollTheDice() {
+//// Get the DiceViewController
+//
+//var controller: DiceViewController
+//
+//controller = self.storyboard?.instantiateViewControllerWithIdentifier("DiceViewController") as! DiceViewController
+//
+//// Set the two values to random numbers from 1 to 6
+//controller.firstValue = self.randomDiceValue()
+//controller.secondValue = self.randomDiceValue()
+//
+//// Present the view Controller
+//self.presentViewController(controller, animated: true, completion: nil)
+//}
+
+    
+//    From BondVillains with tabs for detail view display
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("VillainDetailViewController") as! VillainDetailViewController
+//        detailController.villain = self.allVillains[indexPath.row]
+//        self.navigationController!.pushViewController(detailController, animated: true)
+//        
+//    }
+
 
 }
 

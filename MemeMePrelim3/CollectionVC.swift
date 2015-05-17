@@ -8,7 +8,9 @@
 
 import UIKit
 
-let reuseIdentifier = "Cell"
+//??????????Should this be CollectionViewCell????????
+
+let reuseIdentifier = "CollectionViewCell"
 
 class CollectionVC: UICollectionViewController {
 
