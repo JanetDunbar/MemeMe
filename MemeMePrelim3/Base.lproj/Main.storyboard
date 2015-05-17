@@ -69,7 +69,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="F6g-qY-Fxz">
                                             <connections>
-                                                <segue destination="jac-as-L34" kind="show" id="EFH-2M-L7F"/>
+                                                <segue destination="jac-as-L34" kind="show" identifier="ShowSentMemes" id="EFH-2M-L7F"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -210,7 +210,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uju-Ed-SRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="-254"/>
+            <point key="canvasLocation" x="1210" y="-252"/>
         </scene>
         <!--Table-->
         <scene sceneID="Ae1-dd-dTU">
