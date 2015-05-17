@@ -54,6 +54,19 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let identifier = segue.identifier{
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPathForCell(cell){
+                var seguedToMVC = segue.destinationViewController as! MemeDetailVC
+                seguedToMVC.meme = memes[indexPath.row]
+                
+            }
+        }
+
+    }
+    
     /***TODO:  implement equivalent after make detailVC
 func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 

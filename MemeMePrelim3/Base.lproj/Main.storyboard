@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="1110" y="453"/>
         </scene>
-        <!--View Controller-->
+        <!--Meme DetailVC-->
         <scene sceneID="EDT-zn-lTE">
             <objects>
-                <viewController id="s7w-ah-nIB" sceneMemberID="viewController">
+                <viewController id="s7w-ah-nIB" customClass="MemeDetailVC" customModule="MemeMePrelim3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OtH-VR-Ufv"/>
                         <viewControllerLayoutGuide type="bottom" id="qGe-Sq-oOD"/>
@@ -181,10 +181,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="IB2-SJ-wOq" id="YOa-YO-JYv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LP0-Cb-t93" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="453"/>
+            <point key="canvasLocation" x="1817" y="453"/>
         </scene>
         <!--Collection-->
         <scene sceneID="OZc-zV-0y3">
