@@ -19,6 +19,7 @@ class MemeDetailVC: UIViewController {
         print("meme.topText = \(meme.topText)")
         
         // Do any additional setup after loading the view.
+        self.imageView!.contentMode = .ScaleAspectFit
         self.imageView!.image = meme.memedImage
     }
 
