@@ -162,7 +162,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7u-av-l2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="453"/>
+            <point key="canvasLocation" x="1115" y="497"/>
         </scene>
         <!--Meme Detail-->
         <scene sceneID="EDT-zn-lTE">
@@ -253,7 +253,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="cc8-Qd-Vcb" id="HAv-xv-S7J"/>
-                                    <segue destination="s7w-ah-nIB" kind="show" id="ggF-hl-H3v"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -286,7 +285,4 @@
             <point key="canvasLocation" x="422" y="446"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ggF-hl-H3v"/>
-    </inferredMetricsTieBreakers>
 </document>

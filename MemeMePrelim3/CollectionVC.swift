@@ -23,7 +23,7 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
         //not sure if below is right
-        //self.collectionView!.reloadData()
+        self.collectionView!.reloadData()
         
         //*****Remove*********!!!!!!!!!!
         println(memes)
@@ -60,21 +60,22 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
         cell.imageView?.image = currentElement.memedImage
         return cell
     }
-   
-    /***TODO FINISH!!!!!!
+    
+    
+    
+
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         println("Cell \(indexPath.row) selected")
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier
-        ("MemeDetailVC")! as MemeDetailVC
+        
+        let object:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC")!
+        
+        let detailController = object as! MemeDetailVC
         //Populate view controller with data according to the selected cell
-        let currentElement = memes[indexPath.row]
-        detailController.imageView.image = currentElement.memedImage
+        detailController.meme = memes[indexPath.row]
         //Present the view controller using navigation
         self.navigationController!.pushViewController(detailController, animated: true)
     }
-*****/
-
 
     // MARK: UICollectionViewDelegate
 
