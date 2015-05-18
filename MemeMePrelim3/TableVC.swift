@@ -65,7 +65,6 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
                 
             }
         }
-
     }
     
     /***TODO:  implement equivalent after make detailVC

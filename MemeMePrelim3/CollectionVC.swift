@@ -8,27 +8,30 @@
 
 import UIKit
 
-//??????????Should this be CollectionViewCell????????
+////??????????Should this be CollectionViewCell????????
+//
+//let reuseIdentifier = "CollectionViewCell"
 
-let reuseIdentifier = "CollectionViewCell"
-
-class CollectionVC: UICollectionViewController {
+class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    var memes = [Meme]()
 
     override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        super.viewDidLoad()
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        memes = appDelegate.memes
+        //not sure if below is right
+        //self.collectionView!.reloadData()
+        
+        //*****Remove*********!!!!!!!!!!
+        println(memes)
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+// came with template...        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     /*
@@ -42,23 +45,19 @@ class CollectionVC: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
-
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 0
-    }
-
+    
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+        println("memes.count = \(memes.count) inside CollectionVC")
+        return memes.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
-    
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionCell
+        let currentElement = memes[indexPath.row]
         // Configure the cell
-    
+        cell.imageView?.image = currentElement.memedImage
         return cell
     }
 
