@@ -13,19 +13,31 @@ class MemeDetailVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     var meme = Meme()
     
-
+/***  worked before, but see improvements
     override func viewDidLoad() {
         super.viewDidLoad()
         print("meme.topText = \(meme.topText)")
         
         // Do any additional setup after loading the view.
+        self.tabBarController?.tabBar.hidden = true
         self.imageView!.contentMode = .ScaleAspectFit
         self.imageView!.image = meme.memedImage
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+***/
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.hidden = true
+        self.imageView!.contentMode = .ScaleAspectFit
+        self.imageView!.image = meme.memedImage
+        
+        //self.imageView!.image = UIImage(named: villain.imageName)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.hidden = false
     }
     
 
