@@ -19,9 +19,21 @@ class MemeDetailVC: UIViewController {
         print("meme.topText = \(meme.topText)")
         
         // Do any additional setup after loading the view.
-        self.tabBarController?.tabBar.hidden = true
+        //self.tabBarController?.tabBar.hidden = true
         self.imageView!.contentMode = .ScaleAspectFit
         self.imageView!.image = meme.memedImage
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.hidden = true
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.hidden = false
     }
 
 
