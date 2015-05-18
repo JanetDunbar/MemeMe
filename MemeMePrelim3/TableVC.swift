@@ -46,8 +46,9 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
         let currentElement = memes[indexPath.row]
+        let separator  = " "
         // Configure the cell...
-        cell.textLabel?.text = currentElement.topText
+        cell.textLabel?.text = currentElement.topText + separator + currentElement.bottomText
         cell.imageView?.image = currentElement.memedImage
         print("currentElement.topText in tableView = \(currentElement.topText)")
         //self.tableView.reloadData()
