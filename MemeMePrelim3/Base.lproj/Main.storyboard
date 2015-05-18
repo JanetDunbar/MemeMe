@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="1110" y="453"/>
         </scene>
-        <!--Meme DetailVC-->
+        <!--Meme Detail-->
         <scene sceneID="EDT-zn-lTE">
             <objects>
-                <viewController id="s7w-ah-nIB" customClass="MemeDetailVC" customModule="MemeMePrelim3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailVC" title="Meme Detail" id="s7w-ah-nIB" customClass="MemeDetailVC" customModule="MemeMePrelim3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OtH-VR-Ufv"/>
                         <viewControllerLayoutGuide type="bottom" id="qGe-Sq-oOD"/>
@@ -220,6 +220,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GLi-iN-Wln">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SU8-bg-4fc">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -252,6 +253,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="cc8-Qd-Vcb" id="HAv-xv-S7J"/>
+                                    <segue destination="s7w-ah-nIB" kind="show" id="ggF-hl-H3v"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -284,4 +286,7 @@
             <point key="canvasLocation" x="422" y="446"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ggF-hl-H3v"/>
+    </inferredMetricsTieBreakers>
 </document>
