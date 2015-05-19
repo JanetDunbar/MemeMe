@@ -66,6 +66,19 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
             }
         }
     }
+    /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: rightBarButtonItem) {
+        
+        if let identifier = segue.identifier{
+            let cell = sender as! UIBarButtonItem
+            var seguedToMVC = segue.destinationViewController as! ViewController
+            seguedToMVC.tabBarController.tabBar.hidden = true
+            
+        }
+    }
+*/
+    
+    
     
     /***TODO:  implement equivalent after make detailVC
 func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -119,8 +132,10 @@ self.navigationController!.pushViewController(detailController, animated: true)
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
+        
         // Pass the selected object to the new view controller.
     }
-    */
+*/
+   
 
 }

@@ -13,20 +13,34 @@ class MemeDetailVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     var meme = Meme()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("meme.topText = \(meme.topText)")
         
         // Do any additional setup after loading the view.
         //self.tabBarController?.tabBar.hidden = true
         self.imageView!.contentMode = .ScaleAspectFit
         self.imageView!.image = meme.memedImage
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //showMemeEditor(self.navigationItem.rightBarButtonItem!)
+        
     }
+    /***
+    @IBAction func showMemeEditor(sender: UIBarButtonItem) {
     
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+
+    }
+***/
+
+
     /*
     // MARK: - Navigation
+    
+    
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

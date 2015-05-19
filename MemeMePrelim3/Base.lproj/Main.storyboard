@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMePrelim3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMePrelim3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -159,7 +159,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="iNM-c0-BNd"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="lgj-fY-VCY"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wc2-oi-Lat">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" id="j89-2b-Aw9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7u-av-l2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,6 +202,8 @@
                             <constraint firstAttribute="trailing" secondItem="IB2-SJ-wOq" secondAttribute="trailing" id="tyO-Or-cfY"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="IB2-SJ-wOq" id="YOa-YO-JYv"/>
                     </connections>
@@ -276,7 +283,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uju-Ed-SRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="-224"/>
+            <point key="canvasLocation" x="938" y="-246"/>
         </scene>
         <!--Table-->
         <scene sceneID="Ae1-dd-dTU">
