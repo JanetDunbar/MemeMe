@@ -158,7 +158,14 @@
                             <outlet property="delegate" destination="Tw4-mg-Sii" id="QYW-oc-M12"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="5ZX-3G-RpS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YC5-P0-hT8">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" id="3cy-vF-Opq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7u-av-l2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,6 +186,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IB2-SJ-wOq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <navigationBar alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="liA-xk-hOW">
+                                <rect key="frame" x="6" y="14" width="600" height="44"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem id="86r-mZ-ruI"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -194,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LP0-Cb-t93" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="453"/>
+            <point key="canvasLocation" x="1881" y="573"/>
         </scene>
         <!--Collection-->
         <scene sceneID="OZc-zV-0y3">
@@ -261,7 +275,10 @@
                             <outlet property="delegate" destination="6iH-KQ-2AY" id="hPA-NC-cwV"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="DMo-vc-OLh"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="DMo-vc-OLh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="J9N-G2-mnN"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bvk-o2-CoG"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uju-Ed-SRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
