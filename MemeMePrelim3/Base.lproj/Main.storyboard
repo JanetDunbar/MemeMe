@@ -177,15 +177,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IB2-SJ-wOq">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IB2-SJ-wOq" firstAttribute="top" secondItem="OtH-VR-Ufv" secondAttribute="bottom" constant="-44" id="42O-eb-Ctj"/>
-                            <constraint firstAttribute="bottom" secondItem="IB2-SJ-wOq" secondAttribute="bottom" id="JNH-3Z-ymX"/>
-                            <constraint firstItem="IB2-SJ-wOq" firstAttribute="leading" secondItem="IUy-sv-Wnh" secondAttribute="leading" id="aMg-SB-Iwg"/>
-                            <constraint firstAttribute="centerX" secondItem="IB2-SJ-wOq" secondAttribute="centerX" id="zj0-si-csN"/>
+                            <constraint firstItem="IB2-SJ-wOq" firstAttribute="leading" secondItem="IUy-sv-Wnh" secondAttribute="leading" id="7Dw-mq-JxS"/>
+                            <constraint firstAttribute="bottom" secondItem="IB2-SJ-wOq" secondAttribute="bottom" id="GFk-9b-0WX"/>
+                            <constraint firstItem="IB2-SJ-wOq" firstAttribute="top" secondItem="IUy-sv-Wnh" secondAttribute="top" id="iTk-zL-lfK"/>
+                            <constraint firstAttribute="trailing" secondItem="IB2-SJ-wOq" secondAttribute="trailing" id="tyO-Or-cfY"/>
                         </constraints>
                     </view>
                     <connections>
