@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1296" y="36"/>
+            <point key="canvasLocation" x="-1228" y="68"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Sd2-G2-IXJ">
@@ -160,11 +160,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="lgj-fY-VCY"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wc2-oi-Lat">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="j89-2b-Aw9"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wc2-oi-Lat"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7u-av-l2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,13 +273,11 @@
                             <outlet property="delegate" destination="6iH-KQ-2AY" id="hPA-NC-cwV"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="DMo-vc-OLh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="kSh-IA-nVH"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="DMo-vc-OLh"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uju-Ed-SRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="-246"/>
+            <point key="canvasLocation" x="1095" y="-237"/>
         </scene>
         <!--Table-->
         <scene sceneID="Ae1-dd-dTU">
