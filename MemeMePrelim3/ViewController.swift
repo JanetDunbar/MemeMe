@@ -220,7 +220,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         self.presentViewController(controller, animated: true, completion: nil)
 
     }
-/***old code-?worked about the same
+/***old code-?worked about the same except for performSegueWithIdentifier
 
         presentViewController(controller, animated: true, completion: nil)
         save()

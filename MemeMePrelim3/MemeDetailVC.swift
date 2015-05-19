@@ -22,6 +22,7 @@ class MemeDetailVC: UIViewController {
         //self.tabBarController?.tabBar.hidden = true
         self.imageView!.contentMode = .ScaleAspectFit
         self.imageView!.image = meme.memedImage
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     /*

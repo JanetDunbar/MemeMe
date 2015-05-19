@@ -159,12 +159,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="5ZX-3G-RpS"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YC5-P0-hT8">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="3cy-vF-Opq"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="iNM-c0-BNd"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7u-av-l2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,8 +271,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="DMo-vc-OLh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="J9N-G2-mnN"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bvk-o2-CoG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="kSh-IA-nVH"/>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uju-Ed-SRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
