@@ -14,6 +14,8 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     var memes = [Meme]()
     
     override func viewDidLoad() {
+        println("TableVC: viewDidLoad")
+        
         super.viewDidLoad()
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -30,11 +32,21 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        println("TableVC: viewWillAppear")
+        
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
 
 
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        println("TableVC: numberOfRowsInSection")
         
         // Return the number of rows in the section.
         
@@ -44,6 +56,8 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        println("TableVC: cellForRowAtIndexPath")
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
         let currentElement = memes[indexPath.row]
         let separator  = " "
@@ -56,6 +70,8 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        println("TableVC: prepareForSegue")
         
         if let identifier = segue.identifier {
             switch identifier{

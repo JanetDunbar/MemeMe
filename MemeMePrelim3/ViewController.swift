@@ -28,7 +28,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName : NSNumber(float: -3.0),
-        //TODO: Fill in appropriate Float
+        
     ]
     
     //var memedImage: UIImage
@@ -56,23 +56,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         topTextField.delegate = self
         bottomTextField.delegate = self
-        
-        
-        
-        //topTextField.tintColor = UIColor.blackColor()
-        
-        /***
-        topTextField.backgroundColor = UIColor.clearColor()
-        topTextField.borderStyle = UITextBorderStyle.None
-        topTextField.opaque = false
-        topTextField.textColor = UIColor.whiteColor()
-        println("topTextField = \(topTextField)")
-        ***/
        
-        
-        /***
-        
-        ***/
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -213,8 +197,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         controller.completionWithItemsHandler = {activity, completed, items, error in
             if completed {
                 self.save()
-                self.dismissViewControllerAnimated(true, completion: nil)
-                self.performSegueWithIdentifier("ShowSentMemes", sender: self)
+                //self.dismissViewControllerAnimated(true, completion: nil)
+                self.performSegueWithIdentifier("ShowSentMemes", sender: controller)
+                //self.dismissViewControllerAnimated(true, completion: nil)
+
             }
         }
         self.presentViewController(controller, animated: true, completion: nil)
