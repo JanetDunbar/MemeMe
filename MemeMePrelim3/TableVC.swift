@@ -57,11 +57,23 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if let identifier = segue.identifier{
-            let cell = sender as! UITableViewCell
-            if let indexPath = tableView.indexPathForCell(cell){
-                var seguedToMVC = segue.destinationViewController as! MemeDetailVC
-                seguedToMVC.meme = memes[indexPath.row]
+        if let identifier = segue.identifier {
+            switch identifier{
+            case "ShowMemeDetail":
+                let cell = sender as! UITableViewCell
+                if let indexPath = tableView.indexPathForCell(cell) {
+                    var seguedToMVC = segue.destinationViewController as! MemeDetailVC
+                    seguedToMVC.meme = memes[indexPath.row]
+                }
+            
+            case "ShowMemeEditor":
+                let cell = sender as! UIBarButtonItem
+                var seguedToMVC = segue.destinationViewController as! ViewController
+                seguedToMVC.hidesBottomBarWhenPushed = true;
+                //seguedToMVC.navigationController!.navigationBar.hidden = true
+            
+            default:
+                println("In Default Switch")
                 
             }
         }
@@ -136,6 +148,7 @@ self.navigationController!.pushViewController(detailController, animated: true)
         // Pass the selected object to the new view controller.
     }
 */
+    
    
 
 }

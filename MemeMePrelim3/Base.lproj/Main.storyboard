@@ -160,7 +160,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="lgj-fY-VCY"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wc2-oi-Lat"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wc2-oi-Lat">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="show" identifier="ShowMemeEditor" id="FJZ-sV-yH2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7u-av-l2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
