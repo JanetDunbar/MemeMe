@@ -80,8 +80,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         // Subscribe to keyboard notifications to allow the view to raise when necessary
         self.subscribeToKeyboardNotifications()
         self.subscribeToKeyboardHideNotifications()
-        //self.tabBarController?.tabBar.hidden = true
-        
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
     }
     
