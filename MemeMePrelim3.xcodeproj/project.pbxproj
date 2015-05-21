@@ -97,6 +97,7 @@
 				84B385351AF13A6D000CE6BA /* Main.storyboard */,
 				8441EBF51B0A412200A3B60D /* CollectionCell.swift */,
 				8400330F1B094D4500B48D03 /* MemeDetailVC.swift */,
+				84B385381AF13A6D000CE6BA /* Images.xcassets */,
 				84B3852F1AF13A6D000CE6BA /* Supporting Files */,
 				841B837C1AF3FB7B008B81BC /* aTextFieldDelegate.swift */,
 			);
@@ -106,7 +107,6 @@
 		84B3852F1AF13A6D000CE6BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84B385381AF13A6D000CE6BA /* Images.xcassets */,
 				84B3853A1AF13A6D000CE6BA /* LaunchScreen.xib */,
 				84B385301AF13A6D000CE6BA /* Info.plist */,
 			);

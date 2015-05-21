@@ -210,16 +210,16 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         //when complete save, dismiss VC, and segue to Sent Memes
-        /*****
+        
         controller.completionWithItemsHandler = {activity, completed, items, error in
             if completed {
                 self.save()
                 self.dismissViewControllerAnimated(true, completion: nil)
-                self.performSegueWithIdentifier("ShowSentMemes", sender: self)
+                //self.performSegueWithIdentifier("ShowSentMemes", sender: self)
             }
         }
-        ***/
-        self.save()
+        
+        //self.save()
         //dismissViewControllerAnimated(true, completion: nil)
         
         self.presentViewController(controller, animated: true, completion: nil)
@@ -262,37 +262,5 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         //dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    //TODO:  Refactor L2 code to create function to segue to
-    //Tab Bar VC.  Be sure to give Tab Bar Vc it a storyboard ID
-    //and Class name.?Won't need to pass the data either.
-    //It will need to be called after ActivityVC completes.
-   
-//IBAction func rollTheDice() {
-//// Get the DiceViewController
-//
-//var controller: DiceViewController
-//
-//controller = self.storyboard?.instantiateViewControllerWithIdentifier("DiceViewController") as! DiceViewController
-//
-//// Set the two values to random numbers from 1 to 6
-//controller.firstValue = self.randomDiceValue()
-//controller.secondValue = self.randomDiceValue()
-//
-//// Present the view Controller
-//self.presentViewController(controller, animated: true, completion: nil)
-//}
-
-    
-//    From BondVillains with tabs for detail view display
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("VillainDetailViewController") as! VillainDetailViewController
-//        detailController.villain = self.allVillains[indexPath.row]
-//        self.navigationController!.pushViewController(detailController, animated: true)
-//        
-//    }
-
-
 }
 
