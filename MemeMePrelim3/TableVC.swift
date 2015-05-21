@@ -77,29 +77,11 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
             }
         }
     }
-    /*
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: rightBarButtonItem) {
-        
-        if let identifier = segue.identifier{
-            let cell = sender as! UIBarButtonItem
-            var seguedToMVC = segue.destinationViewController as! ViewController
-            seguedToMVC.tabBarController.tabBar.hidden = true
-            
-        }
-    }
-*/
-    
-    
-    
-    /***TODO:  implement equivalent after make detailVC
-func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("VillainDetailViewController") as! VillainDetailViewController
-detailController.villain = self.allVillains[indexPath.row]
-self.navigationController!.pushViewController(detailController, animated: true)
+    
+    
+    
 
-}
-***/
 
 
     /*
