@@ -210,6 +210,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         //when complete save, dismiss VC, and segue to Sent Memes
+        /*****
         controller.completionWithItemsHandler = {activity, completed, items, error in
             if completed {
                 self.save()
@@ -217,9 +218,22 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
                 self.performSegueWithIdentifier("ShowSentMemes", sender: self)
             }
         }
+        ***/
+        self.save()
+        //dismissViewControllerAnimated(true, completion: nil)
+        
         self.presentViewController(controller, animated: true, completion: nil)
 
     }
+    
+    
+    @IBAction func ShowSentMemes(sender: AnyObject) {
+    
+        dismissViewControllerAnimated(true, completion: nil)
+
+    }
+    
+    
 /***old code-?worked about the same except for performSegueWithIdentifier
 
         presentViewController(controller, animated: true, completion: nil)

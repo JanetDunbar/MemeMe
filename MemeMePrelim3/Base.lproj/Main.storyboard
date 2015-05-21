@@ -68,7 +68,11 @@
                                                 <action selector="showActivityVC:" destination="vXZ-lx-hvc" id="duw-nJ-YXx"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="F6g-qY-Fxz"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="F6g-qY-Fxz">
+                                            <connections>
+                                                <action selector="ShowSentMemes:" destination="vXZ-lx-hvc" id="OC3-KT-jVF"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

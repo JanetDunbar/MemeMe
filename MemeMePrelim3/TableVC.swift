@@ -15,13 +15,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let object = UIApplication.sharedApplication().delegate
-        let appDelegate = object as! AppDelegate
-        memes = appDelegate.memes
-        self.tableView.reloadData() 
         
-        //*****Remove*********!!!!!!!!!!
-        println(memes)
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -30,6 +24,16 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = object as AppDelegate
+        memes = appDelegate.memes
+        self.tableView.reloadData()
+    }
+    
+
 
 
     // MARK: - Table view data source
