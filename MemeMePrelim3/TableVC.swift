@@ -51,7 +51,12 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         
     }
 
+    @IBAction func deleteMeme(sender: UIBarButtonItem) {
+        
+    }
     
+    
+    //prepare for segue to Meme Detail
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let identifier = segue.identifier {
@@ -77,32 +82,30 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
             }
         }
     }
-
-    
-    
-    
-
-
-
-    /*
+   
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            let object = UIApplication.sharedApplication().delegate as! AppDelegate
+            let appDelegate = object as AppDelegate
+            appDelegate.memes.removeAtIndex(indexPath.row)
+            memes = appDelegate.memes
+            
+            //memes.remove
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
