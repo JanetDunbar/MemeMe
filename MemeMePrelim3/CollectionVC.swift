@@ -15,21 +15,6 @@ import UIKit
 class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
     var memes = [Meme]()
-
-    /***
-    override func viewDidLoad() {
-
-        super.viewDidLoad()
-        let object = UIApplication.sharedApplication().delegate
-        let appDelegate = object as! AppDelegate
-        memes = appDelegate.memes
-        //not sure if below is right
-        self.collectionView!.reloadData()
-        
-        //      *****Remove*********!!!!!!!!!!
-        println(memes)
-    }
-    ***/
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -54,10 +39,15 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func showMemeEditor(sender: UIBarButtonItem) {
+        
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
     // MARK: UICollectionViewDataSource
     
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
         println("memes.count = \(memes.count) inside CollectionVC")
