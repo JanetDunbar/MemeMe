@@ -16,6 +16,7 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
     
     var memes = [Meme]()
 
+    /***
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -25,8 +26,17 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
         //not sure if below is right
         self.collectionView!.reloadData()
         
-        //*****Remove*********!!!!!!!!!!
+        //      *****Remove*********!!!!!!!!!!
         println(memes)
+    }
+    ***/
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let object = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = object as AppDelegate
+        memes = appDelegate.memes
+        self.collectionView!.reloadData()
     }
 
         // Register cell classes

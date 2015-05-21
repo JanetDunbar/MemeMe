@@ -12,7 +12,7 @@ import UIKit
 class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate {
 
     var memes = [Meme]()
-    
+ /***
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +24,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+***/
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
