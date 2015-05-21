@@ -23,11 +23,19 @@ class MemeDetailVC: UIViewController {
         //self.tabBarController?.tabBar.hidden = true
         self.imageView!.contentMode = .ScaleAspectFit
         self.imageView!.image = meme.memedImage
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //add edit button
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         //showMemeEditor(self.navigationItem.rightBarButtonItem!)
+        //self.navigationItem.rightBarButtonItem.target
         
     }
 
+    func showMemeEditorAgain(sender: UIBarButtonItem) {
+        
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
     /*
     // MARK: - Navigation
     
