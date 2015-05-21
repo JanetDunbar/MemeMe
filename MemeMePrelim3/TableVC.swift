@@ -97,8 +97,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
             let appDelegate = object as AppDelegate
             appDelegate.memes.removeAtIndex(indexPath.row)
             memes = appDelegate.memes
-            
-            //memes.remove
+            //also delete from tableView
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
         } else if editingStyle == .Insert {
