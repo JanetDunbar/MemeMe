@@ -27,15 +27,6 @@ class MemeDetailVC: UIViewController {
         //showMemeEditor(self.navigationItem.rightBarButtonItem!)
         
     }
-    /***
-    @IBAction func showMemeEditor(sender: UIBarButtonItem) {
-    
-        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        self.presentViewController(controller, animated: true, completion: nil)
-
-    }
-***/
-
 
     /*
     // MARK: - Navigation

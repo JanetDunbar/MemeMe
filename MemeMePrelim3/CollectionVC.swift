@@ -27,12 +27,13 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
         
         //*****Remove*********!!!!!!!!!!
         println(memes)
+    }
 
         // Register cell classes
 // came with template...        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-    }
+    
 
     /*
     // MARK: - Navigation

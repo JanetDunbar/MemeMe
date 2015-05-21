@@ -55,6 +55,14 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+    @IBAction func showMemeEditor(sender: UIBarButtonItem) {
+        
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let identifier = segue.identifier {
@@ -65,12 +73,14 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
                     var seguedToMVC = segue.destinationViewController as! MemeDetailVC
                     seguedToMVC.meme = memes[indexPath.row]
                 }
+            /*****
             
             case "ShowMemeEditor":
                 let cell = sender as! UIBarButtonItem
                 var seguedToMVC = segue.destinationViewController as! ViewController
                 seguedToMVC.hidesBottomBarWhenPushed = true;
                 //seguedToMVC.navigationController!.navigationBar.hidden = true
+            *****/
             
             default:
                 println("In Default Switch")
