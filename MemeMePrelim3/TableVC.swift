@@ -13,9 +13,26 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
 
     var memes = [Meme]()
     
+//    @IBOutlet weak var editButton: UIBarButtonItem!
+    /****
+    override func setEditing (editing:Bool, animated:Bool)
+    {
+        super.setEditing(editing,animated:animated)
+        if (self.editing) {
+            self.editButton.title = "Done"
+        }
+        else {
+            self.editButton.title = "Edit"
+        }
+    }
+    ***/
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -27,6 +44,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     }
 
     // MARK: - Table view data source
+    
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
@@ -52,11 +70,14 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
-//Slide delete works without this function and without edit button
+//Slide delete works without this function and without edit button(before code added)
+    /***
     @IBAction func deleteMeme(sender: UIBarButtonItem) {
         println("inside deleteMeme")
+        //self.setEditing(true, animated: false)
         
     }
+***/
     
     
     //prepare for segue to Meme Detail

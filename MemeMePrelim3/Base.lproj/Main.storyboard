@@ -159,11 +159,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="lgj-fY-VCY">
-                            <connections>
-                                <action selector="deleteMeme:" destination="Tw4-mg-Sii" id="6Hs-mY-HNj"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="lgj-fY-VCY"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wc2-oi-Lat">
                             <connections>
                                 <action selector="showMemeEditor:" destination="Tw4-mg-Sii" id="Elb-3h-hKz"/>
