@@ -13,6 +13,11 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
 
     var memes = [Meme]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.rowHeight = 100
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -24,13 +29,11 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         // Return the number of rows in the section.
         
         println(memes.count)
         return memes.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
@@ -43,15 +46,15 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         //self.tableView.reloadData()
         return cell
     }
-    
-    @IBAction func showMemeEditor(sender: UIBarButtonItem) {
+        @IBAction func showMemeEditor(sender: UIBarButtonItem) {
         
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
-
+//Slide delete works without this function and without edit button
     @IBAction func deleteMeme(sender: UIBarButtonItem) {
+        println("inside deleteMeme")
         
     }
     
