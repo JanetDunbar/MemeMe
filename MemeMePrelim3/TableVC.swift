@@ -31,8 +31,8 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
+        //instantiate edit button
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
