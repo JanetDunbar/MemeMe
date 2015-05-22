@@ -13,21 +13,6 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
 
     var memes = [Meme]()
     
-//    @IBOutlet weak var editButton: UIBarButtonItem!
-    /****
-    override func setEditing (editing:Bool, animated:Bool)
-    {
-        super.setEditing(editing,animated:animated)
-        if (self.editing) {
-            self.editButton.title = "Done"
-        }
-        else {
-            self.editButton.title = "Edit"
-        }
-    }
-    ***/
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
@@ -35,6 +20,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
     
+    //setup sharedApplication data model
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -53,6 +39,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         return memes.count
     }
     
+    //Create cell; add its data
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
         let currentElement = memes[indexPath.row]
@@ -64,49 +51,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         //self.tableView.reloadData()
         return cell
     }
-        @IBAction func showMemeEditor(sender: UIBarButtonItem) {
-        
-        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        self.presentViewController(controller, animated: true, completion: nil)
-        
-    }
-//Slide delete works without this function and without edit button(before code added)
-    /***
-    @IBAction func deleteMeme(sender: UIBarButtonItem) {
-        println("inside deleteMeme")
-        //self.setEditing(true, animated: false)
-        
-    }
-***/
-    
-    
-    //prepare for segue to Meme Detail
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if let identifier = segue.identifier {
-            switch identifier{
-            case "ShowMemeDetail":
-                let cell = sender as! UITableViewCell
-                if let indexPath = tableView.indexPathForCell(cell) {
-                    var seguedToMVC = segue.destinationViewController as! MemeDetailVC
-                    seguedToMVC.meme = memes[indexPath.row]
-                }
-            /*****
-            
-            case "ShowMemeEditor":
-                let cell = sender as! UIBarButtonItem
-                var seguedToMVC = segue.destinationViewController as! ViewController
-                seguedToMVC.hidesBottomBarWhenPushed = true;
-                //seguedToMVC.navigationController!.navigationBar.hidden = true
-            *****/
-            
-            default:
-                println("In Default Switch")
-                
-            }
-        }
-    }
-   
+  
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
@@ -114,6 +59,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     // Override to support editing the table view.
+    // Inserting not enabled in this version.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -129,33 +75,31 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         }    
     }
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    //instantiate Meme Editor and present its view controller
+    @IBAction func showMemeEditor(sender: UIBarButtonItem) {
+        
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        self.presentViewController(controller, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //prepare for segue to Meme Detail
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        
-        // Pass the selected object to the new view controller.
-    }
-*/
     
-   
-
+        if let identifier = segue.identifier {
+            switch identifier{
+                case "ShowMemeDetail":
+                let cell = sender as! UITableViewCell
+                if let indexPath = tableView.indexPathForCell(cell) {
+                var seguedToMVC = segue.destinationViewController as! MemeDetailVC
+                seguedToMVC.meme = memes[indexPath.row]
+                }
+        
+            default:
+            println("In Default Switch")
+                
+            }
+        }
+    }
 }
