@@ -24,13 +24,15 @@ class MemeDetailVC: UIViewController {
         self.imageView!.contentMode = .ScaleAspectFit
         self.imageView!.image = meme.memedImage
         //add edit button
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        //showMemeEditor(self.navigationItem.rightBarButtonItem!)
-        //self.navigationItem.rightBarButtonItem.target
+        
+        /**** Compiles along but crashes!!!
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "showMemeEditorAgain")
+        self.navigationItem.rightBarButtonItem = rightButton
+        *******/
         
     }
 
-    func showMemeEditorAgain(sender: UIBarButtonItem) {
+    @objc func showMemeEditorAgain(sender: UIBarButtonItem) {
         
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         self.presentViewController(controller, animated: true, completion: nil)
