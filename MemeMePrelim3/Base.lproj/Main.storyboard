@@ -3,7 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -101,6 +100,8 @@
                         <outlet property="cameraButton" destination="V3T-v5-NFr" id="Yn6-Ek-G1y"/>
                         <outlet property="imagePickerView" destination="mpE-er-rsG" id="2sY-3v-bMw"/>
                         <outlet property="topTextField" destination="pqi-Ms-uCS" id="sZB-8P-L3a"/>
+                        <outlet property="viewNavBar" destination="gEJ-RL-Te0" id="rzN-PA-bA8"/>
+                        <outlet property="viewToolbar" destination="R3R-Z1-IrI" id="0Ty-dD-0dn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -237,7 +238,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SU8-bg-4fc">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -247,24 +248,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cc8-Qd-Vcb">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="GFL-6f-Ymr"/>
-                                                <constraint firstAttribute="height" constant="50" id="zjj-5d-ard"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="cc8-Qd-Vcb" secondAttribute="bottom" constant="-8" id="C5n-fc-Fze"/>
-                                    <constraint firstItem="cc8-Qd-Vcb" firstAttribute="leading" secondItem="D6a-X6-njg" secondAttribute="leadingMargin" constant="-8" id="JPw-4c-gCL"/>
-                                    <constraint firstItem="cc8-Qd-Vcb" firstAttribute="top" secondItem="D6a-X6-njg" secondAttribute="topMargin" constant="-8" id="REa-Ix-LIU"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="cc8-Qd-Vcb" secondAttribute="trailing" constant="-8" id="uEe-5x-qYR"/>
+                                    <constraint firstAttribute="trailing" secondItem="cc8-Qd-Vcb" secondAttribute="trailing" id="G44-aS-YIx"/>
+                                    <constraint firstAttribute="bottom" secondItem="cc8-Qd-Vcb" secondAttribute="bottom" id="f0B-dh-psx"/>
+                                    <constraint firstItem="cc8-Qd-Vcb" firstAttribute="leading" secondItem="D6a-X6-njg" secondAttribute="leading" id="hpa-Ml-IdX"/>
+                                    <constraint firstItem="cc8-Qd-Vcb" firstAttribute="top" secondItem="D6a-X6-njg" secondAttribute="top" id="s4O-fk-aoz"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="cc8-Qd-Vcb" id="HAv-xv-S7J"/>

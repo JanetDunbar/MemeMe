@@ -7,17 +7,12 @@
 //
 
 import UIKit
-/***trying in separate file
-struct Meme {
-    var topText = ""
-    var bottomText = ""
-    var originalImage: UIImage?
-    var memedImage: UIImage?
-}
-***/
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var viewToolbar: UIToolbar!
+    @IBOutlet weak var viewNavBar: UINavigationBar!
+        
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -28,18 +23,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName : NSNumber(float: -3.0),
-        //TODO: Fill in appropriate Float
     ]
-    
-    //var memedImage: UIImage
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //topTextField.autocapitalizationType = .AllCharacters
-        
+        navigationController?.hidesBottomBarWhenPushed = true
         
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
@@ -56,32 +46,14 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         topTextField.delegate = self
         bottomTextField.delegate = self
-        
-        
-        
-        //topTextField.tintColor = UIColor.blackColor()
-        
-        /***
-        topTextField.backgroundColor = UIColor.clearColor()
-        topTextField.borderStyle = UITextBorderStyle.None
-        topTextField.opaque = false
-        topTextField.textColor = UIColor.whiteColor()
-        println("topTextField = \(topTextField)")
-        ***/
-       
-        
-        /***
-        
-        ***/
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // Subscribe to keyboard notifications to allow the view to raise when necessary
         self.subscribeToKeyboardNotifications()
         self.subscribeToKeyboardHideNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -190,6 +162,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     
     func generateMemedImage() -> UIImage
     {
+        // Hide toolbar and navbar
+        viewToolbar.hidden = true
+        viewNavBar.hidden = true
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,
@@ -197,6 +173,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+
+        // Show toolbar and navbar
+        viewToolbar.hidden = false
+        viewNavBar.hidden = false
         
         return memedImage
     }
@@ -213,14 +193,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         controller.completionWithItemsHandler = {activity, completed, items, error in
             if completed {
-                self.save()
+                self.save(image)
                 self.dismissViewControllerAnimated(true, completion: nil)
                 //self.performSegueWithIdentifier("ShowSentMemes", sender: self)
             }
         }
-        
-        //self.save()
-        //dismissViewControllerAnimated(true, completion: nil)
         
         self.presentViewController(controller, animated: true, completion: nil)
 
@@ -244,11 +221,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
 
     
     
-    func save() {
+    func save(image: UIImage) {
         //Create the meme
         
         var meme = Meme(topText: topTextField.text!, bottomText:bottomTextField.text!,
-            originalImage: self.imagePickerView.image, memedImage: generateMemedImage())
+            originalImage: self.imagePickerView.image, memedImage: image)
         
 
         println ("meme is \(meme)")
