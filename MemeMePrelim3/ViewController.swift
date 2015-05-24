@@ -25,21 +25,34 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         NSStrokeWidthAttributeName : NSNumber(float: -3.0),
     ]
     
+    var editingMeme = false
+    var index = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //topTextField.autocapitalizationType = .AllCharacters
         navigationController?.hidesBottomBarWhenPushed = true
         
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        if editingMeme {
+            
+            let object = UIApplication.sharedApplication().delegate
+            let appDelegate = object as! AppDelegate
+
+            topTextField.text = appDelegate.memes[index].topText
+            bottomTextField.text = appDelegate.memes[index].bottomText
+            self.imagePickerView.image = appDelegate.memes[index].originalImage            
+        } else {
+        
+            topTextField.text = "TOP"
+            bottomTextField.text = "BOTTOM"
+            
+        }
         topTextField.textAlignment =  .Center
         bottomTextField.textAlignment = .Center
         //just added 5.12.15
         topTextField.borderStyle = .None
         bottomTextField.borderStyle = .None
-
-        
         
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -54,12 +67,15 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         self.subscribeToKeyboardNotifications()
         self.subscribeToKeyboardHideNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
         self.unsubscribeFromKeyboardHideNotifications()
+        editingMeme = false
+        index = -1        
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {

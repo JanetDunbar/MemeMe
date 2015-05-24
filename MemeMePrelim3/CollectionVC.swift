@@ -76,6 +76,10 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
         let detailController = object as! MemeDetailVC
         //Populate view controller with data according to the selected cell
         detailController.meme = memes[indexPath.row]
+        
+        // Set up for editor (later)
+        detailController.index = indexPath.row
+
         //Present the view controller using navigation
         self.navigationController!.pushViewController(detailController, animated: true)
     }

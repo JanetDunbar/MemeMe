@@ -83,8 +83,10 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     
     // Instantiate Meme Editor and present its view controller.
     @IBAction func showMemeEditor(sender: UIBarButtonItem) {
-        
+
+        //original code
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        //controller.index = memes.indexPath.row
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -100,6 +102,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
                 if let indexPath = tableView.indexPathForCell(cell) {
                 var seguedToMVC = segue.destinationViewController as! MemeDetailVC
                 seguedToMVC.meme = memes[indexPath.row]
+                seguedToMVC.index = indexPath.row
                 }
         
             default:

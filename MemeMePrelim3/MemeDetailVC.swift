@@ -12,6 +12,7 @@ class MemeDetailVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     var meme = Meme()
+    var index = -1
     
     
     override func viewDidLoad() {
@@ -23,6 +24,8 @@ class MemeDetailVC: UIViewController {
         //self.tabBarController?.tabBar.hidden = true
         self.imageView!.contentMode = .ScaleAspectFit
         self.imageView!.image = meme.memedImage
+        //new
+        
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         //showMemeEditor(self.navigationItem.rightBarButtonItem!)
         
@@ -33,7 +36,10 @@ class MemeDetailVC: UIViewController {
             println("setEditing:  editing true")
             //prepareForSegue(<#segue: UIStoryboardSegue#>, sender: <#AnyObject?#>)
             let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-            self.presentViewController(controller, animated: true, completion: nil)
+            controller.index = index
+            controller.editingMeme = true
+            self.dismissViewControllerAnimated(true, completion: nil)
+            presentViewController(controller, animated: true, completion: nil)
 
         }
         else {
