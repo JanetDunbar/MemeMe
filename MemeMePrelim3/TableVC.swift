@@ -20,7 +20,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
     
-    //setup sharedApplication data model
+    // Setup sharedApplication data model.
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -28,10 +28,15 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         memes = appDelegate.memes
         self.tableView.reloadData()
     }
+    
+    // If user clicks away before finishing edit and returns, edit button will re-display.
+    override func viewWillDisappear(animated: Bool) {
+        
+        self.editing = false
+    }
 
     // MARK: - Table view data source
     
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         
