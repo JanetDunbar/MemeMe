@@ -5,9 +5,9 @@
 //  Created by Dr. Janet M. Dunbar on 5/16/15.
 //  Copyright (c) 2015 Dr. Janet M. Dunbar. All rights reserved.
 //
+//TODO:  Remove printlns.
 
 import UIKit
-
 
 class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -16,7 +16,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
-        //instantiate edit button
+        // Instantiate edit button.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
     
@@ -29,7 +29,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         self.tableView.reloadData()
     }
     
-    // If user clicks away before finishing edit and returns, edit button will re-display.
+    // Editing mode cancelled when view disappears.
     override func viewWillDisappear(animated: Bool) {
         
         self.editing = false
@@ -44,7 +44,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         return memes.count
     }
     
-    //Create cell; add its data
+    // Create cell; add its data.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
         let currentElement = memes[indexPath.row]
@@ -65,7 +65,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     // Override to support editing the table view.
-    // Inserting not enabled in this version.
+    // Insertion not enabled in this version.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -81,7 +81,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         }    
     }
     
-    //instantiate Meme Editor and present its view controller
+    // Instantiate Meme Editor and present its view controller.
     @IBAction func showMemeEditor(sender: UIBarButtonItem) {
         
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
@@ -90,7 +90,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     
     // MARK: - Navigation
 
-    //prepare for segue to Meme Detail
+    // Prepare for segue to Meme Detail.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
         if let identifier = segue.identifier {
