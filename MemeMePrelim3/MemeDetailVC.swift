@@ -31,6 +31,10 @@ class MemeDetailVC: UIViewController {
     override func setEditing(editing: Bool, animated: Bool) {
         if editing{
             println("setEditing:  editing true")
+            //prepareForSegue(<#segue: UIStoryboardSegue#>, sender: <#AnyObject?#>)
+            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            self.presentViewController(controller, animated: true, completion: nil)
+
         }
         else {
             println("setEditing:  editing false")
@@ -38,7 +42,7 @@ class MemeDetailVC: UIViewController {
         }
     }
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -50,6 +54,7 @@ class MemeDetailVC: UIViewController {
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
+*/
     
 
 }
