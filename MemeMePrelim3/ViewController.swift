@@ -72,8 +72,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             
             textField.text = ""
         }
-        
-        //textField.autocapitalizationType = .AllCharacters
     }
     
     
@@ -210,17 +208,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
 
     }
     
-    
-/***old code-?worked about the same except for performSegueWithIdentifier
-
-        presentViewController(controller, animated: true, completion: nil)
-        save()
-            }
-***/
-    
-
-    
-    
     func save(image: UIImage) {
         //Create the meme
         
@@ -234,10 +221,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-         
-         /*****/
-        
-        //dismissViewControllerAnimated(true, completion: nil)
+
     }
 }
 
