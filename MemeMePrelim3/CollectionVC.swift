@@ -16,6 +16,11 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
     
     var memes = [Meme]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -63,9 +68,6 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
         //cell.backgroundView = imageView
         return cell
     }
-    
-    
-    
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
@@ -98,12 +100,12 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
     }
     */
 
-    /*
+    
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-*/
+
 
     
 
