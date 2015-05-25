@@ -27,20 +27,34 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         NSStrokeWidthAttributeName : NSNumber(float: -3.0),
     ]
     
+    // Meme detail will set these, if editing
+    var editingMeme = false
+    var index = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationController?.hidesBottomBarWhenPushed = true
         
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        if editingMeme {
+            
+            let object = UIApplication.sharedApplication().delegate
+            let appDelegate = object as! AppDelegate
+
+            topTextField.text = appDelegate.memes[index].topText
+            bottomTextField.text = appDelegate.memes[index].bottomText
+            self.imagePickerView.image = appDelegate.memes[index].originalImage
+        } else {
+        
+            topTextField.text = "TOP"
+            bottomTextField.text = "BOTTOM"
+        }
+        
         topTextField.textAlignment =  .Center
         bottomTextField.textAlignment = .Center
         //just added 5.12.15
         topTextField.borderStyle = .None
         bottomTextField.borderStyle = .None
-
-        
         
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -55,12 +69,14 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         self.subscribeToKeyboardNotifications()
         self.subscribeToKeyboardHideNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        println("ViewController:viewWillAppear: viewToolbar.hidden: \(viewToolbar.hidden), viewNavBar.hidden: \(viewNavBar.hidden)")
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
         self.unsubscribeFromKeyboardHideNotifications()
+        
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -178,7 +194,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     @IBAction func showActivityVC(sender: UIBarButtonItem) {
         
         let image = generateMemedImage()
-        //save()
 
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
@@ -215,8 +230,18 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         //Update data model (memes) in sharedApplication
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(meme)
-
+        if editingMeme {
+            appDelegate.memes[index] = meme
+            editingMeme = false
+            
+            // When we're "editing", we've been invoked by Meme Detail controller.
+            // That's where we end up when we go away.  We need to update
+            // the Detail controller with the current meme:
+            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailVC") as! MemeDetailVC
+            controller.index = index
+        } else {
+            appDelegate.memes.append(meme)
+        }
     }
 }
 

@@ -11,34 +11,47 @@ import UIKit
 class MemeDetailVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
-    var meme = Meme()
+    //var meme = Meme()
     
+    // Index of meme to display
+    var index = -1
+    var appDelegate: AppDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        print("meme.topText = \(meme.topText)")
+        // Store our AppDelegate for access to the memes
+        let object = UIApplication.sharedApplication().delegate
+        appDelegate = object as! AppDelegate
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        println("MemeDetailVC: viewWillAppear() called")
+        print("meme.topText = \(appDelegate.memes[index].topText)")
         
         // Do any additional setup after loading the view.
-        //self.tabBarController?.tabBar.hidden = true
         self.imageView!.contentMode = .ScaleAspectFit
-        self.imageView!.image = meme.memedImage
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        //showMemeEditor(self.navigationItem.rightBarButtonItem!)
-        
+        self.imageView!.image = appDelegate.memes[index].memedImage
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
         if editing{
             println("setEditing:  editing true")
-            //prepareForSegue(<#segue: UIStoryboardSegue#>, sender: <#AnyObject?#>)
+
             let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-            self.presentViewController(controller, animated: true, completion: nil)
-
-        }
-        else {
+            
+            // Let ViewController know that it's editing an existing meme
+            // at index.
+            controller.index = index
+            controller.editingMeme = true
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            presentViewController(controller, animated: true, completion: nil)
+            
+        } else {
             println("setEditing:  editing false")
-
         }
     }
 
