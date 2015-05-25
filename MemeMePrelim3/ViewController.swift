@@ -74,8 +74,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             textField.text = ""
         }
     }
-    
-    
+        
     func textFieldShouldReturn(textField:UITextField)->Bool{
         
         textField.resignFirstResponder()
@@ -87,7 +86,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
-    
     
     func keyboardWillHide(notification: NSNotification) {
       
