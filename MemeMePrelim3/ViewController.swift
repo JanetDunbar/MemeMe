@@ -18,17 +18,18 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    //Extra credit: Added free custom font BebasNeue to the project
+    //in lieu of Impact font(serious investment).
     var memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "BebasNeueRegular", size: 40)!,
+        NSFontAttributeName : UIFont(name: "BebasNeueBold", size: 40)!,
         NSStrokeWidthAttributeName : NSNumber(float: -3.0),
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //topTextField.autocapitalizationType = .AllCharacters
         navigationController?.hidesBottomBarWhenPushed = true
         
         topTextField.text = "TOP"
@@ -95,9 +96,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             self.view.frame.origin.y += getKeyboardHeight(notification)
            
         }
-        //self.view.endEditing(true)
-
-        //self.view.frame.origin.y += getKeyboardHeight(notification)
         
     }
     
@@ -128,13 +126,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             UIKeyboardWillHideNotification, object: nil)
     }
     
-    /***
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-****/
     
+    //present imagepicker
     @IBAction func pickAnImage(sender: AnyObject) {
         
         let imagePicker = UIImagePickerController()
@@ -181,7 +179,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
 
     @IBAction func showActivityVC(sender: UIBarButtonItem) {
         
-        
         let image = generateMemedImage()
         //save()
 
@@ -198,7 +195,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         }
         
         self.presentViewController(controller, animated: true, completion: nil)
-
     }
     
     
@@ -218,6 +214,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         println ("meme is \(meme)")
         println ("topText is \(meme.topText)")
         
+        //Update data model (memes) in sharedApplication
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
