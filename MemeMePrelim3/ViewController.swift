@@ -25,6 +25,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         NSStrokeWidthAttributeName : NSNumber(float: -3.0),
     ]
     
+    // Meme detail will set these, if editing
     var editingMeme = false
     var index = -1
     
@@ -41,12 +42,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
 
             topTextField.text = appDelegate.memes[index].topText
             bottomTextField.text = appDelegate.memes[index].bottomText
-            self.imagePickerView.image = appDelegate.memes[index].originalImage            
+            self.imagePickerView.image = appDelegate.memes[index].originalImage
         } else {
         
             topTextField.text = "TOP"
             bottomTextField.text = "BOTTOM"
-            
         }
         
         topTextField.textAlignment =  .Center
@@ -69,17 +69,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         self.subscribeToKeyboardHideNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         println("ViewController:viewWillAppear: viewToolbar.hidden: \(viewToolbar.hidden), viewNavBar.hidden: \(viewNavBar.hidden)")
-        // TODO:  Try this!
-        //viewToolbar.hidden = false
-        //viewNavBar.hidden = false
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
         self.unsubscribeFromKeyboardHideNotifications()
-        editingMeme = false
-        index = -1        
+        
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -203,7 +199,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         
         let image = generateMemedImage()
-        //save()
 
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
@@ -240,8 +235,18 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(meme)
-
+        if editingMeme {
+            appDelegate.memes[index] = meme
+            editingMeme = false
+            
+            // When we're "editing", we've been invoked by Meme Detail controller.
+            // That's where we end up when we go away.  We need to update
+            // the Detail controller with the current meme:
+            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailVC") as! MemeDetailVC
+            controller.index = index
+        } else {
+            appDelegate.memes.append(meme)
+        }
     }
 }
 

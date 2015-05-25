@@ -101,7 +101,6 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
                 let cell = sender as! UITableViewCell
                 if let indexPath = tableView.indexPathForCell(cell) {
                 var seguedToMVC = segue.destinationViewController as! MemeDetailVC
-                seguedToMVC.meme = memes[indexPath.row]
                 seguedToMVC.index = indexPath.row
                 }
         

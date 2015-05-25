@@ -74,8 +74,6 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
         let object:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC")!
         
         let detailController = object as! MemeDetailVC
-        //Populate view controller with data according to the selected cell
-        detailController.meme = memes[indexPath.row]
         
         // Set up for editor (later)
         detailController.index = indexPath.row
