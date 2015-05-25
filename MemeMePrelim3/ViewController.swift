@@ -66,6 +66,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         
         println("Inside textFieldDidBeginEditing")
         println("textField is \(textField)")
+        println("textField.")
+        //textField.description
         println()
         
         if (textField.text == "TOP") || (textField.text == "BOTTOM"){
