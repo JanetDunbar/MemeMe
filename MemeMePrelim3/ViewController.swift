@@ -48,6 +48,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             bottomTextField.text = "BOTTOM"
             
         }
+        
         topTextField.textAlignment =  .Center
         bottomTextField.textAlignment = .Center
         //just added 5.12.15
@@ -67,7 +68,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         self.subscribeToKeyboardNotifications()
         self.subscribeToKeyboardHideNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        
+        println("ViewController:viewWillAppear: viewToolbar.hidden: \(viewToolbar.hidden), viewNavBar.hidden: \(viewNavBar.hidden)")
+        // TODO:  Try this!
+        //viewToolbar.hidden = false
+        //viewNavBar.hidden = false
     }
     
     override func viewWillDisappear(animated: Bool) {
