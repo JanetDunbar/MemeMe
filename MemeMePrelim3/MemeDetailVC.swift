@@ -36,19 +36,36 @@ class MemeDetailVC: UIViewController {
         self.imageView!.image = appDelegate.memes[index].memedImage
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    func startOver() {
+        
+        if let navigationController = self.navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
+    }
+
     override func setEditing(editing: Bool, animated: Bool) {
         if editing{
             println("setEditing:  editing true")
 
-            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            if let navigationController = self.navigationController {
+                navigationController.popToRootViewControllerAnimated(true)
+                
+                let controller = navigationController.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+                
+                // Let ViewController know that it's editing an existing meme
+                // at index.
+                controller.index = index
+                controller.editingMeme = true
+                
+                
+                //self.dismissViewControllerAnimated(true, completion: nil)
+                presentViewController(controller, animated: true, completion: nil)
+            }
             
-            // Let ViewController know that it's editing an existing meme
-            // at index.
-            controller.index = index
-            controller.editingMeme = true
-            
-            self.dismissViewControllerAnimated(true, completion: nil)
-            presentViewController(controller, animated: true, completion: nil)
             
         } else {
             println("setEditing:  editing false")
