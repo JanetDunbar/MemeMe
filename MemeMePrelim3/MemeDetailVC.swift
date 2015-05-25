@@ -11,7 +11,6 @@ import UIKit
 class MemeDetailVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
-    //var meme = Meme()
     
     // Index of meme to display
     var index = -1
@@ -21,15 +20,13 @@ class MemeDetailVC: UIViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        // Store our AppDelegate for access to the memes
+        // Store our AppDelegate for access to the memes.
         let object = UIApplication.sharedApplication().delegate
         appDelegate = object as! AppDelegate
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        println("MemeDetailVC: viewWillAppear() called")
-        print("meme.topText = \(appDelegate.memes[index].topText)")
         
         // Do any additional setup after loading the view.
         self.imageView!.contentMode = .ScaleAspectFit
@@ -38,36 +35,19 @@ class MemeDetailVC: UIViewController {
     
     override func setEditing(editing: Bool, animated: Bool) {
         if editing{
-            println("setEditing:  editing true")
 
             let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
             
             // Let ViewController know that it's editing an existing meme
             // at index.
             controller.index = index
-            controller.editingMeme = true
+            controller.reEditingMeme = true
             
             self.dismissViewControllerAnimated(true, completion: nil)
             presentViewController(controller, animated: true, completion: nil)
             
         } else {
-            println("setEditing:  editing false")
+            println("setEditing:  editing false unexpectedly.")
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        //below code from showMemeEditor IBAction
-        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        self.presentViewController(controller, animated: true, completion: nil)
-        
-    }
-*/
-    
-
 }

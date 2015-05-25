@@ -5,7 +5,6 @@
 //  Created by Dr. Janet M. Dunbar on 5/16/15.
 //  Copyright (c) 2015 Dr. Janet M. Dunbar. All rights reserved.
 //
-//TODO:  Remove printlns.
 
 import UIKit
 
@@ -18,19 +17,9 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         tableView.rowHeight = 100
         // Instantiate edit button.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        //TODO:!!!!added to find font names - remove later
-        for fontFamilyName in UIFont.familyNames() {
-            println("-- \(fontFamilyName) --")
-            
-            for fontName in UIFont.fontNamesForFamilyName(fontFamilyName as! String) {
-                println(fontName)
-            }
-            
-            println(" ")
-        }
     }
     
-    // Setup sharedApplication data model.
+    // Setup sharedApplication data model and update data.
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let object = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -50,7 +39,6 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         
-        println(memes.count)
         return memes.count
     }
     
@@ -62,15 +50,12 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         // Configure the cell...
         cell.textLabel?.text = currentElement.topText + separator + currentElement.bottomText
         cell.imageView?.image = currentElement.memedImage
-        print("currentElement.topText in tableView = \(currentElement.topText)")
-        //self.tableView.reloadData()
+
         return cell
     }
   
-    // Override to support conditional editing of the table view.
-    //!!!!! Probably don't need this!!!!!!
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
+        // Return false if you do not want the specified item to be editable.
         return true
     }
     
@@ -83,20 +68,18 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
             let appDelegate = object as AppDelegate
             appDelegate.memes.removeAtIndex(indexPath.row)
             memes = appDelegate.memes
-            //also delete from tableView
+            // Also delete from tableView.
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
         } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            // Possible future enhancement
         }    
     }
     
     // Instantiate Meme Editor and present its view controller.
     @IBAction func showMemeEditor(sender: UIBarButtonItem) {
 
-        //original code
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        //controller.index = memes.indexPath.row
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -107,16 +90,14 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     
         if let identifier = segue.identifier {
             switch identifier{
-                case "ShowMemeDetail":
+            case "ShowMemeDetail":
                 let cell = sender as! UITableViewCell
                 if let indexPath = tableView.indexPathForCell(cell) {
-                var seguedToMVC = segue.destinationViewController as! MemeDetailVC
-                seguedToMVC.index = indexPath.row
+                    var seguedToMVC = segue.destinationViewController as! MemeDetailVC
+                    seguedToMVC.index = indexPath.row
                 }
-        
             default:
-            println("In Default Switch")
-                
+                println("In Default Switch unexpectedly.")
             }
         }
     }

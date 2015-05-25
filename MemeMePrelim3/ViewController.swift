@@ -18,7 +18,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
-    //Extra credit: Added free custom font BebasNeue to the project
+    //Extra credit attempt: Added free custom font BebasNeue to the project
     //in lieu of Impact font(serious investment).
     var memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -27,16 +27,15 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         NSStrokeWidthAttributeName : NSNumber(float: -3.0),
     ]
     
-    // Meme detail will set these, if editing
-    var editingMeme = false
+    // Meme detail will set these, if editing previously made meme.
+    var reEditingMeme = false
     var index = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        navigationController?.hidesBottomBarWhenPushed = true
-        
-        if editingMeme {
+        //Only if re-editing meme via edit button of MemeDetailVC.
+        if reEditingMeme {
             
             let object = UIApplication.sharedApplication().delegate
             let appDelegate = object as! AppDelegate
@@ -69,7 +68,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         self.subscribeToKeyboardNotifications()
         self.subscribeToKeyboardHideNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        println("ViewController:viewWillAppear: viewToolbar.hidden: \(viewToolbar.hidden), viewNavBar.hidden: \(viewNavBar.hidden)")
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -80,10 +79,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        
-        println("Inside textFieldDidBeginEditing")
-        println("textField is \(textField)")
-        println()
         
         if (textField.text == "TOP") || (textField.text == "BOTTOM"){
             
@@ -140,13 +135,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             UIKeyboardWillHideNotification, object: nil)
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //present imagepicker
+    // Present imagepicker.
     @IBAction func pickAnImage(sender: AnyObject) {
         
         let imagePicker = UIImagePickerController()
@@ -155,6 +149,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    //Capture image in imagePickerView and dismiss imagePicker.
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
@@ -197,19 +192,17 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
 
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
-        //when complete save, dismiss VC, and segue to Sent Memes
+        // When complete save image; dismiss ActivityVC.
         
         controller.completionWithItemsHandler = {activity, completed, items, error in
             if completed {
                 self.save(image)
                 self.dismissViewControllerAnimated(true, completion: nil)
-                //self.performSegueWithIdentifier("ShowSentMemes", sender: self)
             }
         }
         
         self.presentViewController(controller, animated: true, completion: nil)
     }
-    
     
     @IBAction func ShowSentMemes(sender: AnyObject) {
     
@@ -218,27 +211,23 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     }
     
     func save(image: UIImage) {
-        //Create the meme
         
+        //Create the meme
         var meme = Meme(topText: topTextField.text!, bottomText:bottomTextField.text!,
             originalImage: self.imagePickerView.image, memedImage: image)
         
-
-        println ("meme is \(meme)")
-        println ("topText is \(meme.topText)")
-        
-        //Update data model (memes) in sharedApplication
+        //Update data model (memes).
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
-        if editingMeme {
+        if reEditingMeme {
             appDelegate.memes[index] = meme
-            editingMeme = false
+            reEditingMeme = false
             
-            // When we're "editing", we've been invoked by Meme Detail controller.
-            // That's where we end up when we go away.  We need to update
-            // the Detail controller with the current meme:
+            // Get index of meme to be re-edited when edit button of MemeDetailVC pressed. Update MemeDetailVC with the current meme.
+            
             let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailVC") as! MemeDetailVC
             controller.index = index
+            
         } else {
             appDelegate.memes.append(meme)
         }
