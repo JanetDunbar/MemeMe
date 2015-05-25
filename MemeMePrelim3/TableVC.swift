@@ -18,6 +18,16 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         tableView.rowHeight = 100
         // Instantiate edit button.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        //TODO:!!!!added to find font names - remove later
+        for fontFamilyName in UIFont.familyNames() {
+            println("-- \(fontFamilyName) --")
+            
+            for fontName in UIFont.fontNamesForFamilyName(fontFamilyName as! String) {
+                println(fontName)
+            }
+            
+            println(" ")
+        }
     }
     
     // Setup sharedApplication data model.
