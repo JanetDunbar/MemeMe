@@ -31,11 +31,11 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        println("TableVC viewDidAppears: memes.count =\(memes.count)")
-        // If user has sent no memes, start in meme editor.
+        // If user has no sent memes, start in meme editor.
         if (memes.count == 0){
             let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-            self.presentViewController(controller, animated: true, completion: nil)        }
+            self.presentViewController(controller, animated: true, completion: nil) 
+        }
     }
     
     // Editing mode cancelled when view disappears.
