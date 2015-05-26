@@ -31,7 +31,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        // If user has no sent memes, start in meme editor.
+        // If user has no sent memes, start in Meme Editor instead of Sent Memes.
         if (memes.count == 0){
             showMemeEditor()
         }
@@ -95,7 +95,6 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     @IBAction func respondToAddButton(sender: UIBarButtonItem) {
         
         showMemeEditor()
-
     }
     
     // MARK: - Navigation

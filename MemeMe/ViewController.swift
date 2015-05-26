@@ -97,19 +97,16 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
             // Original code below
             //self.view.frame.origin.y -= getKeyboardHeight(notification)
             self.view.frame.origin.y = -(getKeyboardHeight(notification))
-            
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
       
         if bottomTextField.isFirstResponder() {
-            // Original code below
-            //self.view.frame.origin.y += getKeyboardHeight(notification)
             
-            // Since we know that the origin point of the frame is (0,0). The height is always zero at its default position.
+            // Origin point of the frame is (0,0).
+            // Height is always zero at its default position.
             self.view.frame.origin.y = 0.0
-            
         }
     }
     
