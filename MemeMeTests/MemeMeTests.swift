@@ -1,6 +1,6 @@
 //
-//  MemeMePrelim3Tests.swift
-//  MemeMePrelim3Tests
+//  MemeMe.swift renamed from MemeMePrelim3Tests.swift
+//  MemeMe from MemeMePrelim3Tests
 //
 //  Created by Dr. Janet M. Dunbar on 4/29/15.
 //  Copyright (c) 2015 Dr. Janet M. Dunbar. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class MemeMePrelim3Tests: XCTestCase {
+class MemeMeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

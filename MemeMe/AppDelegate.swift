@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MemeMePrelim3
+//  MemeMe renamed from MemeMePrelim3
 //
 //  Created by Dr. Janet M. Dunbar on 4/29/15.
 //  Copyright (c) 2015 Dr. Janet M. Dunbar. All rights reserved.
