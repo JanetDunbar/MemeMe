@@ -161,7 +161,7 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="NKD-rS-aWs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wc2-oi-Lat">
                             <connections>
-                                <action selector="showMemeEditor:" destination="Tw4-mg-Sii" id="Elb-3h-hKz"/>
+                                <action selector="respondToAddButton:" destination="Tw4-mg-Sii" id="7cX-Ad-ge0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

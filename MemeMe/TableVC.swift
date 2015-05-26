@@ -33,8 +33,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         
         // If user has no sent memes, start in meme editor.
         if (memes.count == 0){
-            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-            self.presentViewController(controller, animated: true, completion: nil) 
+            showMemeEditor()
         }
     }
     
@@ -47,8 +46,8 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
         
+        // Return the number of rows in the section.
         return memes.count
     }
     
@@ -86,11 +85,17 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
         }    
     }
     
-    // Instantiate Meme Editor and present its view controller.
-    @IBAction func showMemeEditor(sender: UIBarButtonItem) {
-
+    func showMemeEditor(){
+        
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    // Instantiate Meme Editor and present its view controller.
+    @IBAction func respondToAddButton(sender: UIBarButtonItem) {
+        
+        showMemeEditor()
+
     }
     
     // MARK: - Navigation
@@ -107,7 +112,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
                     seguedToMVC.index = indexPath.row
                 }
             default:
-                println("In Default Switch unexpectedly.")
+                println("TableVC: In default of Switch unexpectedly.")
             }
         }
     }
