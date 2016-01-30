@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class TableVC: UITableViewController {
 
     var memes = [Meme]()
     
@@ -53,7 +53,7 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
     
     // Create cell; add its data.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) 
         let currentElement = memes[indexPath.row]
         let separator  = " "
         // Configure the cell...
@@ -107,11 +107,11 @@ class TableVC: UITableViewController, UITableViewDataSource, UITableViewDelegate
             case "ShowMemeDetail":
                 let cell = sender as! UITableViewCell
                 if let indexPath = tableView.indexPathForCell(cell) {
-                    var seguedToMVC = segue.destinationViewController as! MemeDetailVC
+                    let seguedToMVC = segue.destinationViewController as! MemeDetailVC
                     seguedToMVC.index = indexPath.row
                 }
             default:
-                println("TableVC: In default of Switch unexpectedly.")
+                print("TableVC: In default of Switch unexpectedly.")
             }
         }
     }

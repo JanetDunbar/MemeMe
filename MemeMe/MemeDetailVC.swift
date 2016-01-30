@@ -47,7 +47,7 @@ class MemeDetailVC: UIViewController {
             presentViewController(controller, animated: true, completion: nil)
             
         } else {
-            println("setEditing:  editing false unexpectedly.")
+            print("setEditing:  editing false unexpectedly.")
         }
     }
 }

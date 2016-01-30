@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+class CollectionVC: UICollectionViewController{
     
     var memes = [Meme]()
     
@@ -44,7 +44,7 @@ class CollectionVC: UICollectionViewController, UICollectionViewDataSource, UICo
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
                 
-        let object:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC")!
+        let object:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC")
         
         let detailController = object as! MemeDetailVC
         

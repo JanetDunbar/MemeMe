@@ -152,7 +152,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     }
     
     //Capture image in imagePickerView and dismiss imagePicker.
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -215,7 +215,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
     func save(image: UIImage) {
         
         //Create the meme
-        var meme = Meme(topText: topTextField.text!, bottomText:bottomTextField.text!,
+        let meme = Meme(topText: topTextField.text!, bottomText:bottomTextField.text!,
             originalImage: self.imagePickerView.image, memedImage: image)
         
         //Update data model (memes).
