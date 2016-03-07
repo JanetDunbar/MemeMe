@@ -199,7 +199,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Dr. Janet M. Dunbar";
 				TargetAttributes = {
 					84B3852B1AF13A6D000CE6BA = {
@@ -331,6 +331,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -398,6 +399,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amberlight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MemeMe;
 			};
 			name = Debug;
@@ -409,6 +411,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amberlight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MemeMe;
 			};
 			name = Release;
@@ -427,6 +430,7 @@
 				);
 				INFOPLIST_FILE = MemeMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amberlight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MemeMeTests;
 				TEST_HOST = "";
 			};
@@ -442,6 +446,7 @@
 				);
 				INFOPLIST_FILE = MemeMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amberlight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MemeMeTests;
 				TEST_HOST = "";
 			};
